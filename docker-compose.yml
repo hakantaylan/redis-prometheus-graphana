@@ -21,7 +21,7 @@ services:
       - REDIS_PASSWORD=my_master_password
 
   redis-exporter:
-    image: oliver006/redis_exporter
+    image: oliver006/redis_exporter:latest
     ports:
       - 9121:9121
     environment:

@@ -77,3 +77,17 @@ OK
 127.0.0.1:6379> exit
 # exit
 ```
+
+## Prometheus ve Redis Exporter olmadan doğrudan Redis dashboard'u kullanmak için
+Kurulu değilse plugins kısmından Redis plugini kurulur. Datasource olarak Redis ayarlanır. Datasource panelindeki Dashboards sekmesinden
+Redis için varsayılan olarak gelen dashboard seçilir.
+
+```bash
+for((i=1;i<=1000000;i++)); do echo "set k$i v$i" >> /redisTest.txt ;done;
+
+for((i=1;i<=1000000;i++)); do echo "hset value:k$(($i%10000)) k$i v$i" >> /redisHashTest.txt ;done;
+
+redis-cli info| egrep "used_memory_human|total_system_memory_human"
+
+redis-cli info memory| egrep "used_memory_human|total_system_memory_human"
+```
